@@ -2,6 +2,11 @@
   "index": "Introduction",
   "another": "Another Page",
   "advanced": "Advanced (A Folder)",
+  "feature1": "Feature 1 Name",
+  "feature2": "Feature 2 Name",
+  "feature3": "Feature 3 Name",
+  "feature4": "Feature 4 Name",
+  "feature5": "Feature 5 Name",
   "about": {
     "title": "About",
     "type": "page"
