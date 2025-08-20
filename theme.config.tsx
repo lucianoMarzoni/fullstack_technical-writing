@@ -13,14 +13,22 @@ const config: DocsThemeConfig = {
     />
     <span>osTicket Documentation | Luciano Marzoni</span>
   </>
-),
-//<img src="osTicket_logo_400x400.png" width="25" height="25"></img>
+  ),
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/lucianoMarzoni/fullstack_technical-writing/',
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
-  footer: {
-    text: 'Nextra Docs Template',
+  docsRepositoryBase: 'https://github.com/lucianoMarzoni/fullstack_technical-writing/',
+  chat: {
+    link: 'https://www.linkedin.com/in/luciano-marzoni/',
+    icon: (
+      <img 
+      src="/linkedin-logo_600x600.png" 
+      alt="linkedin Logo" 
+      width={25} 
+      height={25} 
+      style={{ marginRight: "6px", verticalAlign: "middle"}}
+      />
+    )
   },
 }
 
