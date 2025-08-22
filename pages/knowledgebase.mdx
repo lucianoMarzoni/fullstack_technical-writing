@@ -1,1 +1,64 @@
-# Feature 4
+import { Steps } from 'nextra/components'
+import { Callout } from 'nextra/components'
+
+# Building a Knowledgebase
+
+A knowledgebase is a great way to generate resources for your agents and potentially for end-users as well. This can reduce ticket resolution time or even help users resolve issues on their own.
+
+## Creating FAQs
+
+**FAQs are articles** that can be accessed by agents or even users if properly configured. They contain important information regarding your organization or product.
+
+<Steps>
+
+### Enable the Knowledgebase
+ 
+In the Admin panel, go to `Settings > Knowledgebase{:markdown}` and turn on "Enable Knowledge Base."
+
+Click "Save Changes."
+
+![Enable Knowledgebase](public\knowledgebase_1-enable-knowledgebase.png)
+ 
+### Add New Category
+
+To add new FAQs, first you need to create a category.
+ 
+In the Agent panel, go to `Knowledgebase > Categories{:markdown}`.
+
+Click "Add New Category"
+
+![Add New Category](public\knowledgebase_2-add-a-category.png)
+
+Configure your new category. Keep in mind that public articles in a private category will remain hidden.
+
+![Add New Category](public\knowledgebase_3-configure-category.png)
+
+Click "Add" at the bottom to finish.
+
+### Add New FAQ
+
+Go to `Knowledgebase > FAQs{:markdown}` and click the new category.
+
+Click "Add New FAQ"
+
+![Add New Category](public\knowledgebase_4-add-new-faq.png)
+
+<Callout>
+  Can't find the button? Open a category first. The button will appear there.
+</Callout>
+
+### Create Your First Article
+
+Despite the name, **osTicket FAQs don't need to stick to a question-answer format**. They can be fully-fledged articles with diverse elements like subsections, images and tables.
+
+Articles can be created using the editor or with standard HTML.
+
+Build your article, then scroll down to the bottom and click "Add FAQ".
+
+![Create an article](public\knowledgebase_5-create-faq.png)
+
+<Callout type="warning" emoji="⚠️">
+  To be visible to end-users, both articles and their assigned category must be public.
+</Callout>
+
+</Steps>
