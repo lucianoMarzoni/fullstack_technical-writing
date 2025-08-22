@@ -1,0 +1,181 @@
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+
+## General API Description
+
+Dummy Rest API Example provides a set of endpoints to test fake online APIs. In other words, it provides a sandbox environment to learn how to use APIs and prototype sample applications.
+
+This API interacts with a sample employee database, and allows users to consult, add, modify and delete employee records. They can achieve this by using the four basic types of API requests: GET, POST, PUT, and DELETE.
+
+## cURL Commands
+
+Below are example Bash commands to interact with two endpoints:
+- `/employee/{id}{:markdown}`
+- `/create{:markdown}`
+
+### `/employee/{id}`
+
+Provided an employee id this endpoint will return the corresponding information from the database:
+- name
+- salary
+- age
+- profile_image
+
+#### Request
+
+```bash copy
+curl -X GET "https://dummy.restapiexample.com/api/v1/employee/1" \
+  -H "Accept: application/json"
+```
+
+#### Response
+This will return a JSON with the data for the employee with id "1".
+
+```json copy
+{
+  "status": "success",
+  "data": {
+    "id": 1,
+    "employee_name": "Tiger Nixon",
+    "employee_salary": 320800,
+    "employee_age": 61,
+    "profile_image": ""
+  },
+  "message": "Successfully! Record has been fetched."
+}
+```
+
+### `/create`
+
+This endpoint creates a new employee record. The `id` is a server-generated value that cannot be specified in the request. Fields in the request body will be used to create the new employee. If a field is not included in the request, it will be saved as `null` by default.
+
+Currently, this endpoint processes a request even if all fields are empty. This results in a new record with `null` values for `name`, `salary`, and `age`. To prevent the creation of records without essential information, a validation should be added. This would ensure that any request to this endpoint fails with a if `name`.
+
+#### Request
+
+```bash copy
+curl -X POST "https://dummy.restapiexample.com/api/v1/create" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Doe",
+    "salary": 50000,
+    "age": 30
+  }'
+```
+
+#### Response
+
+```json
+{
+  "status": "success",
+  "data": {
+    "name": "John Doe",
+    "salary": 50000,
+    "age": 30,
+    "id": 7282
+  },
+  "message": "Successfully! Record has been added."
+}
+```
+
+## Required Fields for `/employee`
+
+The basic fields for `/employee` are:
+- **`name`**: string.
+- **`age`**: number.
+- **`salary`**: number.
+- **`profile_image`**: URL.
+
+Other fields could be added to keep more detailed records:
+- **`currently_employed`**: boolean. This would allow to keep records for employees no longer in the organization.
+- **`department`**: string. Department within the organization that the employee belongs to.
+- **`hire_date`**: date. When the employee started working.
+- **`termination_date`**: date. When the employee stopped working. A validation should be added to the database: if a record exists for this field, then `currently_employed` must be `negative`.
+- **`termination_reason`**: string. Reason why the employee left the company.
+- **`phone_number`**: number.
+- **`email`**: string.
+- **`emergency_contact_name`**: string.
+- **`emergency_contact_relationship`**: string. How the emergency contact is related to the employee.
+- **`emergency_contact_phone_number`**: number.
+
+## Entry Level Guide
+
+To learn about APIs, first [download Postman](https://www.postman.com/downloads/), this is an API testing app that allows you to interact with APIs.
+
+In this exercise, we will work with [Dummy Rest API Example](https://dummy.restapiexample.com/). This playground provides a database of employees, and endpoints to interact with the database.
+
+### `/employee`
+
+This endpoint accepts GET requests to retrieve data from the database. It returns a JSON file with the records for all employees.
+
+Let's look at how to interact with `/employee`.
+
+<Steps>
+
+### Create a New Collection
+
+In Postman, **click "New"**, then **select "HTTPS"**.
+
+![Creating a new collection](public\api_documentation_1_employee.png)
+
+### Make the Request
+
+In the box beside the request type ("GET") **paste the full endpoint URL**. Then **click "Send"**.
+
+```markup copy
+https://dummy.restapiexample.com/api/v1/employees
+```
+
+![Endpoint URL](public\api_documentation_2_employee.png)
+
+<Callout>
+  As a convention and for the sake of brevity, endpoints are usually shortened in documentation. But requests need the full URL to retrieve successfull responses.
+</Callout>
+
+### Response
+
+If all goes well, you should see the response with all the employee data expressed in JSON format.
+
+![API Response](public\api_documentation_3_employee.png)
+
+</Steps>
+
+###  `/delete/{id}`
+
+This endpoint accepts a DELETE request with an employee id and removes the records for that employee from the database.
+
+The steps for `/delete/{id}` are similar to those for `/employee`, but with two key differences:
+1. The **HTTP method** must be changed from GET to DELETE.
+2. The **endpoint URL** must include the specific employee id you wish to remove from the database.
+
+<Steps>
+
+### Create a New Collection
+
+In Postman, **click "New"**, then **select "HTTPS"**.
+
+![Creating a new collection](public\api_documentation_1_employee.png)
+
+### Change the HTTP Method
+
+**Open the dropdown** besides "GET" and **select "DELETE"**.
+
+![Changing HTTP method](public\api_documentation_4_delete.png)
+
+### Make the Request
+
+In the box beside the request type ("DELETE") **paste the full endpoint URL** and **modify the `{id}`** (don't include the curly brackets). Then **click "Send"**.
+
+```markup copy
+https://dummy.restapiexample.com/api/v1/delete/{id}
+```
+
+![Endpoint URL](public\api_documentation_5_delete.png)
+
+### Success Response
+
+If all goes well, you should see the success response.
+
+![Success URL](public\api_documentation_6_delete.png)
+
+</Steps>

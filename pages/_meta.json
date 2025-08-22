@@ -5,6 +5,7 @@
   "agents": "Managing Agents",
   "knowledgebase": "Building a Knowledgebase",
   "glossary": "Glossary",
+  "api_documentation": "API Documentation",
   "about": {
     "title": "About",
     "type": "page"
