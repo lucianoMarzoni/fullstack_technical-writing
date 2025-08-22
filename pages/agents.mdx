@@ -1,3 +1,57 @@
-# Agents
+import { Steps } from 'nextra/components'
 
-Steps on how to manage agents within the platform
+# Managing Agents
+
+Correctly creating Agents and giving them the right permission is key for providing great support.
+
+## Creating a New Agent
+
+<Steps>
+
+### Add New Agent
+
+In the Admin Panel, go to `Agents > Agents{:markdown}`.
+
+Click "Add New Agent."
+
+![Add New Agent](public\agents_1-add-new-agent.png)
+
+### Fill-in Agent Information
+
+Fill in all required fields:
+- First Name
+- Last Name
+- Email Address
+- Username
+
+![Add New Agent](public\agents_2-configure-agent.png)
+
+
+### Configure their Access Levels
+
+Go to the "Access" tab to **select a Primary Department and select a Role**.
+
+- The Department will affect which tickets get assigned to this agent.
+- While the Role will determine their permissions regarding Tickets, Tasks and Canned Responses in the Knowledgebase.
+
+![Agent Accesses](public\agents_3-configure-agent-accesses.png)
+
+This covers basic Agent setup, you can click "Create" at this point.
+
+### Set Permissions (optional)
+
+Go to the "Permissions" tab to assign specific actions an Agent can perform.
+
+This affects an Agent's ability to manage Users, Organizations, FAQs in the Knowledgebase or perform other specific actions.
+
+Some permissions are turned on by default.
+
+![Agent Permissions](public\agents_4-permissions.png)
+
+### Assign Teams (optional)
+
+Teams affect ticket assignment and enable admins to group people within or across departments.
+
+![Agent Teams](public\agents_5-teams.png)
+
+</Steps>
