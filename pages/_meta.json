@@ -1,10 +1,10 @@
 {
   "index": "Introduction",
+  "installation": "Installation",
   "post_install": "Post-Install Setup Guide",
   "agents": "Managing Agents",
+  "knowledgebase": "Building a Knowledgebase",
   "glossary": "Glossary",
-  "knowledgebase": "Building a",
-  "feature5": "Feature 5 Name",
   "about": {
     "title": "About",
     "type": "page"
