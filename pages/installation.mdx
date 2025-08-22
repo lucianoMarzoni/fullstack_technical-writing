@@ -1,0 +1,130 @@
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+
+# Installation
+**osTicket provides a web-based installer** to guide you through the installation process. While the installer provides step-by-step instructions, it’s important and helpful to have general knowledge about Web servers, PHP and MySQL.
+
+
+## Prerequisites
+To install osTicket, your server needs:
+
+- **Apache/LiteSpeed/IIS webserver** (with the URL Rewrite module installed/enabled).
+
+- **PHP 8.1 - 8.2** (8.2 recommended).
+
+- **MySQL 5.0** (or better).
+
+- **A MySQL database** which must have hostname and a password-protected user with full privileges.
+
+
+<Callout type="warning" emoji="⚠️">
+  If you are unsure whether your server meets these requirements, consult your host or webmaster before proceeding.
+</Callout>
+
+
+### WINDOWS RECOMMENDED LINKS
+
+- **PHP 8.2/8.1** for Windows Server ([Download](https://windows.php.net/download/)).
+
+- **MySQL 8.0** for Windows Server ([Download](https://dev.mysql.com/downloads/installer/)).
+
+- **MariaDB 10.11** for Windows Server ([Download](https://mariadb.org/download/)).
+
+- **PHP Manager 2** for IIS ([Download](https://www.phpmanager.xyz/)).
+
+
+## Getting Started
+
+<Steps>
+
+### Download osTicket
+
+Get the [latest version of osTicket](https://osticket.com/download/).
+
+Select the desired language packs and plugins for your installation.
+
+<Callout>
+  By default, osTicket will include the language pack "EN - US" in your download.
+</Callout>
+ 
+### Upload files to your server
+
+**Create a directory on your server** for osTicket. For the sake of this exercise we will call it `/osticket/{:markdown}`, but you can choose another name to fit your needs.
+ 
+**Uncompress the files and add the `/upload/{:markdown}` directory** to your server.
+
+Basic knowledge of using FTP is a plus at this stage. If you don’t know how to use FTP, we recommend you read the documentation provided by your FTP client and learn how to upload and set file permissions.
+
+### Open the osTicket installer
+
+**Go to `yourdomain/osticket/{:markdown}`** to launch the installer.
+
+This will check your server configuration to ensure it supports osTicket. It will also recommend extensions to add features or improve perfomance.
+
+Click "Continue". The installer will take it from here.
+
+Once the installation is complete, the script will create and populate the database and write a configuration file.
+
+You can now log in with the username and password you created during the process.
+
+### Clean up
+
+Please take a second to cleanup after installing osTicket.
+
+- Change permission of `include/ost-config.php{:markdown}` to remove write access.
+- Delete the `setup.php{:markdown}` directory.
+- Enable the system.
+
+### Post-install configuration
+
+The installer just gets osTicket up and running. Further configuration is required, post-install, to make the system fully functional.
+
+[Post-Install Setup Guide](/post_install.mdx)
+
+</Steps>
+
+
+## Installing osTicket Using Fantastico In CPanel
+osTicket can also be installed on CPanel-based web-hosting accounts using Fantastico. From your CPanel, click on Fantastico and follow the instructions to install osTicket.
+
+The Fantastico package for osTicket may not be as up to date as the latest release available on osTicket.com. Please check the osTicket.com website for the latest version.
+
+<Callout type="warning" emoji="⚠️">
+  Fantastico installs osTicket with support@system.com as the default email address (as of 9 Jan 2010). If you install using Fantastico, immediately change email addresses in the main System Preferences and in your Department settings.
+</Callout>
+
+
+## Troubleshooting
+**To correctly assess problems** you encounter, enable the “Show Errors” flags located in `/bootstrap.php{:markdown}` (or `/main.inc.php{:markdown}` in older versions).
+
+<Steps>
+
+### Find this configuration.
+
+```php copy filename="/bootstrap.php"
+ini_set('display_errors',0);
+ini_set('display_startup_errors',0);
+```
+
+### And change the flags from `0{:markdown}` to `1{:markdown}`.
+This will turn on error display.
+
+```php copy filename="/bootstrap.php"
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+```
+</Steps>
+
+Errors should be displayed either in your web browser or in your server’s `error.log{:markdown}` file.
+
+
+<Callout type="info" emoji="ℹ️">
+  Don’t forget to check your osTicket Dashboard page and your mail server log.
+</Callout>
+
+-----
+## NEED A HAND?
+
+**We can help you install and configure osTicket.**
+
+[Learn more about our installation services](https://osticket.com/services/professional-support/)
