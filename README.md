@@ -1,6 +1,6 @@
 # Nextra Docs Template 
 
-This is the initial template to perform the technical writing test at FullStack Labs using the [Nextra](https://nextra.site) documentation framework. This framework is an open-source project that is widely used for all kinds of software and product documentation. 
+This is the initial template to perform the technical writing test using the [Nextra](https://nextra.site) documentation framework. This framework is an open-source project that is widely used for all kinds of software and product documentation. 
 
 If you would like to see an exmaple of it, you can check out Nextra's [**Live Demo →**](https://nextra-docs-template.vercel.app).
 
