@@ -49,7 +49,7 @@ This will return a JSON with the data for the employee with id "1".
 
 This endpoint creates a new employee record. The `id` is a server-generated value that cannot be specified in the request. Fields in the request body will be used to create the new employee. If a field is not included in the request, it will be saved as `null` by default.
 
-Currently, this endpoint processes a request even if all fields are empty. This results in a new record with `null` values for `name`, `salary`, and `age`. To prevent the creation of records without essential information, a validation should be added. This would ensure that any request to this endpoint fails with a if `name`.
+Currently, this endpoint processes a request even if all fields are empty. This results in a new record with `null` values for `name`, `salary`, and `age`. To prevent the creation of records without essential information, a validation should be added. This would ensure that requests fail if `name` is incomplete.
 
 #### Request
 
@@ -132,7 +132,7 @@ https://dummy.restapiexample.com/api/v1/employees
   As a convention and for the sake of brevity, endpoints are usually shortened in documentation. But requests need the full URL to retrieve successfull responses.
 </Callout>
 
-### Response
+### Get a Response
 
 If all goes well, you should see the response with all the employee data expressed in JSON format.
 
@@ -172,7 +172,7 @@ https://dummy.restapiexample.com/api/v1/delete/{id}
 
 ![Endpoint URL](public\api_documentation_5_delete.png)
 
-### Success Response
+### Get a Success Response
 
 If all goes well, you should see the success response.
 
